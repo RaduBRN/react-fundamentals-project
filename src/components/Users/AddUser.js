@@ -15,15 +15,13 @@ const AddUser = (props) => {
       return;
     if (+enteredAge < 1) return;
 
-    console.log(enteredUsername, enteredAge);
+    props.onAddUser(enteredUsername, enteredAge);
     setEnteredUsername("");
     setEnteredAge("");
   };
 
   const usernameHandler = (event) => setEnteredUsername(event.target.value);
   const ageHandler = (event) => setEnteredAge(event.target.value);
-
-  const onClick = () => {};
 
   return (
     <Card className={classes.input}>
@@ -42,9 +40,7 @@ const AddUser = (props) => {
           value={enteredAge}
           onChange={ageHandler}
         />
-        <Button type="submit" handleClick={onClick}>
-          Add User
-        </Button>
+        <Button type="submit">Add User</Button>
       </form>
     </Card>
   );
